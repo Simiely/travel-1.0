@@ -128,38 +128,20 @@
   .hotel-card .features span { background: var(--teal-light); color: var(--teal); padding: 3px 12px; border-radius: 14px; font-size: 0.8em; }
   .hotel-card.second .features span { background: var(--gold-light); color: #8B6914; }
 
-  .radius-map { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
-  .radius-item { display: flex; justify-content: space-between; align-items: center; background: var(--white); border-radius: 8px; padding: 10px 14px; border: 1px solid #E0D8C8; }
-  .radius-item .dest { font-size: 0.9em; }
-  .radius-item .dist { font-weight: 800; font-size: 0.85em; padding: 3px 12px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; }
+  .radius-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 14px; }
+  .radius-item { background: var(--white); border-radius: 8px; padding: 12px; border: 1px solid #E0D8C8; }
+  .radius-item .dist { font-weight: 800; font-size: 0.85em; padding: 2px 10px; border-radius: 10px; display: inline-block; }
   .radius-item .dist.walk { background: #E8F0FE; color: var(--blue); }
   .radius-item .dist.tuktuk { background: #FDEBD0; color: #8B6914; }
+  .radius-item .dest { display: block; margin-top: 4px; font-size: 0.9em; }
 
   .footer { text-align: center; color: var(--warm-grey); font-size: 0.85em; padding: 30px 20px; }
   .footer a { color: var(--teal); }
-
-  /* ===== PLAN BOTTOM NAV ===== */
-  .plan-bottom-nav {
-    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-    padding: 18px 0 6px; margin-top: 4px;
-    border-top: 1px dashed #E0D8C8;
-  }
-  .plan-bottom-nav .hint {
-    width: 100%; text-align: center; font-size: 0.85em; color: var(--warm-grey); margin-bottom: 4px;
-  }
-  .plan-bottom-btn {
-    padding: 10px 18px; border-radius: 20px; border: 1.5px solid var(--teal);
-    background: var(--white); color: var(--teal); font-weight: 700;
-    font-size: 0.88em; cursor: pointer; font-family: inherit;
-    transition: all 0.25s; min-height: 44px;
-  }
-  .plan-bottom-btn:hover { background: var(--teal); color: white; transform: translateY(-2px); box-shadow: var(--shadow); }
 
   @media (max-width: 640px) {
     .hero h1 { font-size: 1.7em; }
     .tab-btn { font-size: 0.8em; padding: 12px 4px; }
     .tl li { flex-direction: column; gap: 2px; }
-    .plan-bottom-btn { font-size: 0.8em; padding: 8px 14px; }
   }
 
   @media print {
@@ -191,32 +173,22 @@
 <div class="section">
   <div class="section-header"><span class="icon">🏨</span> 已预订住宿 · 行程时间线 & 步行辐射圈</div>
   <div class="section-body">
-    <table class="budget-table" style="margin-bottom:0;">
-      <tr><th style="width:10%">日期</th><th style="width:24%">住宿</th><th style="width:18%">地址</th><th>亮点</th></tr>
+    <table class="budget-table" style="margin-bottom:20px;">
+      <tr><th style="width:12%">日期</th><th style="width:25%">住宿</th><th style="width:18%">地址</th><th>亮点 & 行程提示</th></tr>
       <tr>
         <td><strong>6/18-21</strong><br><span style="font-size:0.8em;color:var(--warm-grey);">3 晚</span></td>
         <td><strong>🏊 The Jam Boutique Hotel</strong><br><span style="font-size:0.82em;color:var(--warm-grey);">⭐ 4.5 · 89 条评价 · 2025 开业</span></td>
         <td>Ban Viengkeo, Alley 2<br><span style="font-size:0.8em;color:var(--warm-grey);">古城西南 · 莲花池畔</span></td>
-        <td>无边际泳池 · 莲花池景观 · 亲子友好</td>
+        <td>无边际泳池 · 莲花池景观 · 亲子友好<br><span style="font-size:0.82em;color:var(--teal);">▶ 18 日下午抵达直接入住<br>▶ 21 日中午退房</span></td>
       </tr>
-    </table>
-    <div style="background:var(--gold-light);border-radius:0 0 8px 8px;padding:8px 16px;font-size:0.88em;margin-bottom:14px;">
-      🏊 <strong style="color:#8B6914;">The Jam</strong> ▶ 18 日下午抵达直接入住 · 21 日中午退房
-    </div>
-    <table class="budget-table" style="margin-bottom:0;">
       <tr>
-        <td style="width:10%"><strong>6/21-22</strong><br><span style="font-size:0.8em;color:var(--warm-grey);">1 晚</span></td>
-        <td style="width:24%"><strong>🏡 My BanLao Hotel</strong><br><span style="font-size:0.82em;color:var(--warm-grey);">滿家乐酒店</span></td>
-        <td style="width:18%">Thammikalath Rd<br>Ban Mano Rd<br><span style="font-size:0.8em;color:var(--warm-grey);">古城东南 · 池景三人房</span></td>
-        <td>池景房 44m² · 1.81m+0.8m 床 · SPA · 租车</td>
+        <td><strong>6/21-22</strong><br><span style="font-size:0.8em;color:var(--warm-grey);">1 晚</span></td>
+        <td><strong>🏡 My BanLao Hotel</strong><br><span style="font-size:0.82em;color:var(--warm-grey);">滿家乐酒店</span></td>
+        <td>Thammikalath Rd<br>Ban Mano Rd<br><span style="font-size:0.8em;color:var(--warm-grey);">古城东南 · 池景三人房</span></td>
+        <td>池景房 44m² · 1.81m+0.8m 床 · SPA · 租车<br><span style="font-size:0.82em;color:var(--gold);">▶ 21 日 14:00 入住<br>▶ 22 日 11:30 前退房 → 出发</span></td>
       </tr>
-    </table>
-    <div style="background:var(--gold-light);border-radius:0 0 8px 8px;padding:8px 16px;font-size:0.88em;margin-bottom:14px;">
-      🏡 <strong style="color:#8B6914;">My BanLao</strong> ▶ 21 日 14:00 入住 · 22 日 11:30 前退房 → 出发
-    </div>
-    <table class="budget-table">
       <tr>
-        <td style="width:10%"><strong>6/22</strong></td>
+        <td><strong>6/22</strong></td>
         <td colspan="3">🚄 上午自由 → 退房 → 前往火车站 → D86 返回西双版纳</td>
       </tr>
     </table>
@@ -228,28 +200,28 @@
         <h4>🏊 The Jam Boutique · Ban Viengkeo（古城西南）</h4>
         <p style="font-size:0.85em;color:var(--warm-grey);margin-bottom:12px;">6/18-21 的基地 · 所有活动以此为中心</p>
         <div class="radius-map">
-          <div class="radius-item"><span class="dest">维苏纳拉特寺 Wat Wisunalat</span><span class="dist walk">🚶 4min</span></div>
-          <div class="radius-item"><span class="dest">UXO Lao 游客中心</span><span class="dist walk">🚶 4min</span></div>
-          <div class="radius-item"><span class="dest">TAEC 传统艺术中心</span><span class="dist walk">🚶 5min</span></div>
-          <div class="radius-item"><span class="dest">布施主路 Sakkaline Rd</span><span class="dist walk">🚶 8min</span></div>
-          <div class="radius-item"><span class="dest">夜市 / 洋人街</span><span class="dist walk">🚶 10min</span></div>
-          <div class="radius-item"><span class="dest">普西山 Mount Phousi</span><span class="dist walk">🚶 15min</span></div>
-          <div class="radius-item"><span class="dest">香通寺（北端）</span><span class="dist tuktuk">🛺 5min</span></div>
-          <div class="radius-item"><span class="dest">慢船码头</span><span class="dist tuktuk">🛺 5min</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 4min</span><span class="dest">维苏纳拉特寺 Wat Wisunalat</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 4min</span><span class="dest">UXO Lao 游客中心</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 5min</span><span class="dest">TAEC 传统艺术中心</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 8min</span><span class="dest">布施主路 Sakkaline Rd</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 10min</span><span class="dest">夜市 / 洋人街</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 15min</span><span class="dest">普西山 Mount Phousi</span></div>
+          <div class="radius-item"><span class="dist tuktuk">🛺 5min</span><span class="dest">香通寺（北端）</span></div>
+          <div class="radius-item"><span class="dist tuktuk">🛺 5min</span><span class="dest">慢船码头</span></div>
         </div>
       </div>
       <div class="hotel-card second">
         <h4>🏡 My BanLao · Ban Mano（古城东南）</h4>
         <p style="font-size:0.85em;color:var(--warm-grey);margin-bottom:12px;">6/21-22 的基地 · 安静收官</p>
         <div class="radius-map">
-          <div class="radius-item"><span class="dest">Wat Mano 小寺庙</span><span class="dist walk">🚶 3min</span></div>
-          <div class="radius-item"><span class="dest">夜市 / 洋人街 / 早市</span><span class="dist walk">🚶 4min</span></div>
-          <div class="radius-item"><span class="dest">湄公河岸步道</span><span class="dist walk">🚶 5min</span></div>
-          <div class="radius-item"><span class="dest">布施主路 Sakkaline Rd</span><span class="dist walk">🚶 6min</span></div>
-          <div class="radius-item"><span class="dest">Manda de Laos 荷花池</span><span class="dist walk">🚶 6min</span></div>
-          <div class="radius-item"><span class="dest">皇宫博物馆</span><span class="dist walk">🚶 7min</span></div>
-          <div class="radius-item"><span class="dest">普西山 Mount Phousi</span><span class="dist walk">🚶 10min</span></div>
-          <div class="radius-item"><span class="dest">慢船码头</span><span class="dist tuktuk">🛺 5min</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 3min</span><span class="dest">Wat Mano 小寺庙</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 4min</span><span class="dest">夜市 / 洋人街 / 早市</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 5min</span><span class="dest">湄公河岸步道</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 6min</span><span class="dest">布施主路 Sakkaline Rd</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 6min</span><span class="dest">Manda de Laos 荷花池</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 7min</span><span class="dest">皇宫博物馆</span></div>
+          <div class="radius-item"><span class="dist walk">🚶 10min</span><span class="dest">普西山 Mount Phousi</span></div>
+          <div class="radius-item"><span class="dist tuktuk">🛺 5min</span><span class="dest">慢船码头</span></div>
         </div>
       </div>
     </div>
@@ -412,12 +384,6 @@
       </ul>
       <div class="highlight-box">💡 <strong>本日记忆点：</strong>最后一个琅勃拉邦清晨——布施、早市、可颂，全在步行 6 分钟内 → 咖啡豆塞进行李箱 → 火车窗外远去的湄公河</div>
     </div>
-
-    <div class="plan-bottom-nav">
-      <span class="hint">看完 Plan A 了？</span>
-      <button class="plan-bottom-btn" onclick="switchTab('planB')">🌿 查看 Plan B · 自然野趣 →</button>
-      <button class="plan-bottom-btn" onclick="switchTab('planD')">🎯 查看 Plan D · 双酒店轻奢 →</button>
-    </div>
   </div>
 
   <!-- ========== PLAN B ========== -->
@@ -508,12 +474,6 @@
         <li><span class="time">13:00</span><span class="act"><strong>前往火车站 → 🚄 D86 返回</strong></span></li>
       </ul>
       <div class="highlight-box">💡 <strong>本日记忆点：</strong>晨间骑行穿过稻田的凉风 → 织布村织娘手指间的丝线 → 金色佛塔俯瞰古城的最后一眼</div>
-    </div>
-
-    <div class="plan-bottom-nav">
-      <span class="hint">看完 Plan B 了？</span>
-      <button class="plan-bottom-btn" onclick="switchTab('planA')">🏛️ 查看 Plan A · 经典人文 →</button>
-      <button class="plan-bottom-btn" onclick="switchTab('planD')">🎯 查看 Plan D · 双酒店轻奢 →</button>
     </div>
   </div>
 
@@ -614,12 +574,6 @@
       </ul>
       <div class="highlight-box">💡 <strong>本日记忆点：</strong>最后一口老挝咖啡 → 行李箱里的四包咖啡豆 → 火车窗外远去的湄公河 → 已经在想什么时候再来了</div>
     </div>
-
-    <div class="plan-bottom-nav">
-      <span class="hint">看完 Plan D 了？</span>
-      <button class="plan-bottom-btn" onclick="switchTab('planA')">🏛️ 查看 Plan A · 经典人文 →</button>
-      <button class="plan-bottom-btn" onclick="switchTab('planB')">🌿 查看 Plan B · 自然野趣 →</button>
-    </div>
   </div>
 </div>
 
@@ -703,15 +657,8 @@
 
 <!-- ===== 签证 ===== -->
 <div class="section">
-  <div class="section-header">
-    <span class="icon">🛂</span> 签证 & 入境
-    <span style="margin-left:auto;display:flex;gap:6px;">
-      <button class="visa-tab active" onclick="switchVisa('visa-arrival',this)" style="padding:6px 14px;border-radius:16px;border:1.5px solid var(--teal);background:var(--teal);color:white;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit;">落地签</button>
-      <button class="visa-tab" onclick="switchVisa('visa-evisa',this)" style="padding:6px 14px;border-radius:16px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit;">电子签 eVisa</button>
-    </span>
-  </div>
+  <div class="section-header"><span class="icon">🛂</span> 签证 & 入境</div>
   <div class="section-body">
-    <div id="visa-arrival" class="visa-content">
     <table class="budget-table">
       <tr><td><strong>签证方式</strong></td><td>落地签 (Visa on Arrival)</td></tr>
       <tr><td><strong>费用</strong></td><td>$20 美元（约 ¥140），只收美元现金</td></tr>
@@ -720,19 +667,6 @@
       <tr><td><strong>铁路口岸</strong></td><td>磨丁口岸（老挝侧），火车上完成出入境手续</td></tr>
       <tr><td><strong>注意事项</strong></td><td>准备美元零钱，口岸可能不找零。护照空白页至少 2 页。落地签排队约 15-30 分钟</td></tr>
     </table>
-    </div>
-    <div id="visa-evisa" class="visa-content" style="display:none;">
-    <table class="budget-table">
-      <tr><td><strong>签证方式</strong></td><td>电子签 eVisa（推荐提前办理）</td></tr>
-      <tr><td><strong>费用</strong></td><td>约 $35-50 美元（按处理速度不同），在线支付</td></tr>
-      <tr><td><strong>所需材料</strong></td><td>护照（6 个月以上有效期）+ 护照照片电子版（白底）</td></tr>
-      <tr><td><strong>有效期</strong></td><td>批准后 60 天内入境，入境后停留最多 30 天，单次入境</td></tr>
-      <tr><td><strong>处理时间</strong></td><td>标准 5-7 工作日 / 加急 3-5 工作日 / 特急 1-3 工作日</td></tr>
-      <tr><td><strong>入境口岸</strong></td><td>琅勃拉邦国际机场 · 万象瓦岱机场 · 磨丁口岸（火车/陆路）· 主要友谊桥口岸</td></tr>
-      <tr><td><strong>申请地址</strong></td><td>官网 laoevisa.gov.la，提前打印电子签证页随身携带</td></tr>
-      <tr><td><strong>优势</strong></td><td>免排队、免准备美元零钱、入境更顺畅。火车口岸可用！</td></tr>
-    </table>
-    </div>
   </div>
 </div>
 
@@ -758,7 +692,7 @@
 <div class="footer">
   <p>🌴 以上信息基于 2025-2026 年公开攻略整理，实际价格、营业时间以当地情况为准。</p>
   <p style="margin-top:4px;">每个活动都标注了从当前酒店的步行/车程——跟着走就行，不需要再看地图。</p>
-  <p style="margin-top:16px;font-size:0.8em;">世界的风吹向你 · 公众号 · 2026年 6月</p>
+  <p style="margin-top:16px;font-size:0.8em;">路小鲜 (Leo) · AI 旅行管家 · 2026 年 6 月</p>
 </div>
 
 </div>
@@ -769,13 +703,6 @@ function switchTab(planId) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById(planId).classList.add('active');
   event.target.classList.add('active');
-}
-
-function switchVisa(visaId, btn) {
-  document.querySelectorAll('.visa-content').forEach(c => c.style.display = 'none');
-  document.querySelectorAll('.visa-tab').forEach(b => { b.style.background = 'transparent'; b.style.color = 'var(--teal)'; });
-  document.getElementById(visaId).style.display = 'block';
-  btn.style.background = 'var(--teal)'; btn.style.color = 'white';
 }
 </script>
 
